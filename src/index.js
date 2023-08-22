@@ -13,19 +13,18 @@ app.listen(listenPort, () => {
 
 
 
-app.get('/', (req, res) => {
-    res.send('Listando usuários');
-});
+app.get('/', (req, res) => res.status(200).send('Listando usuários'));
 
 app.get('/usuario/:id', (req, res) => {
     const id = req.params.id;
-    res.send('Usuário' + id);
+    res.send('Usuário:' + id);
     
 });
 
 app.post('/usuario', (req, res) => {
-    const data = req.body;
-    res.json(data);
+    const infos = req.body;
+    
+    res.json(infos);
 });
 
 app.put('/usuario/:id', (req, res) => {
